@@ -1,0 +1,4 @@
+package cardengine
+
+interface CardAction {
+}
