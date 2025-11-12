@@ -1,7 +1,7 @@
 package cardengine
 
 enum class Faction {
-    G4S,
+    CAS,
     FireNation,
     Empire,
     Villagers,
