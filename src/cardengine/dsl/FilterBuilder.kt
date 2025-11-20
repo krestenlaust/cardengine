@@ -1,5 +1,7 @@
 package cardengine.dsl
 
+import cardengine.types.*
+
 class FilterBuilder {
     fun any() = CardFilter.Any
     fun ally() = CardFilter.Ally

@@ -1,5 +1,6 @@
 package cardengine.dsl
 
+import cardengine.types.*
 
 // Effects in modern Gwent
 sealed class Effect {

@@ -1,5 +1,7 @@
 package cardengine.dsl
 
+import cardengine.types.*
+
 // Conditions for triggers
 sealed class Condition {
     data class OnDeploy(val filter: CardFilter = CardFilter.Any) : Condition()
