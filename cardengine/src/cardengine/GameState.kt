@@ -1,7 +1,4 @@
-package cardengine.dsl
-
-import cardengine.Card
-import cardengine.Row
+package cardengine
 
 data class GameState(
     val playerBoard: Map<Row, List<Card>> = mapOf(
