@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/cardengine.iml" filepath="$PROJECT_DIR$/cardengine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cardengine/cardengine.iml" filepath="$PROJECT_DIR$/cardengine/cardengine.iml" />
     </modules>
   </component>
 </project>
