@@ -1,5 +1,6 @@
 package cardengine.dsl
 
+import cardengine.GameState
 import cardengine.Row
 
 // Effects in modern Gwent

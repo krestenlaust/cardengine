@@ -1,6 +1,5 @@
 package cardengine.test.dsl
 
-import cardengine.GameTemplates
 import cardengine.dsl.*
 import javax.xml.transform.Templates
 
