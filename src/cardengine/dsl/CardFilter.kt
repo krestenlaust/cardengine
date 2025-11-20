@@ -14,7 +14,7 @@ sealed class Condition {
     data class OnDestroyed(val filter: CardFilter = CardFilter.Any) : Condition()
     data class OnTurnStart(val ally: Boolean) : Condition()
     data class OnTurnEnd(val ally: Boolean) : Condition()
-    data class OnRoundEnd : Condition()
+    object OnRoundEnd : Condition()
     data class Multiple(val conditions: List<Condition>, val requireAll: Boolean = false) : Condition()
 }
 
