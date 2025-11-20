@@ -3,7 +3,6 @@ package cardengine
 import cardengine.dsl.Ability
 
 data class Card(
-    val id: String,
     val name: String,
     val basePower: Int,
     var power: Int = basePower,
