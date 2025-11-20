@@ -5,7 +5,7 @@ package cardengine;
  */
 public interface CardField {
 
-    public void PutCard(Card card);
+    void PutCard(Card card);
 
-    public Card GetCard();
+    Card GetCard();
 }
