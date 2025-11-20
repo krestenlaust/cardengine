@@ -1,6 +1,8 @@
 package cardengine.dsl
 
-import cardengine.types.*
+import cardengine.Faction
+import cardengine.Row
+import cardengine.Tag
 
 class FilterBuilder {
     fun any() = CardFilter.Any

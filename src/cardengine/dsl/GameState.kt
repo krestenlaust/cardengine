@@ -1,6 +1,7 @@
 package cardengine.dsl
 
-import cardengine.types.*
+import cardengine.Card
+import cardengine.Row
 
 data class GameState(
     val playerBoard: MutableMap<Row, MutableList<Card>> = mutableMapOf(

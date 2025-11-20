@@ -1,4 +1,4 @@
-package cardengine.types
+package cardengine
 
 // Event system for triggers
 sealed class GameEvent {

@@ -1,6 +1,8 @@
 package cardengine.dsl
 
-import cardengine.types.*
+import cardengine.Faction
+import cardengine.Row
+import cardengine.Tag
 
 // Conditions for triggers
 sealed class Condition {

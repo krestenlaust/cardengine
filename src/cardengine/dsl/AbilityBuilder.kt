@@ -1,6 +1,6 @@
 package cardengine.dsl
 
-import cardengine.types.*
+import cardengine.*
 
 // Ability types
 sealed class AbilityType {

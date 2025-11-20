@@ -1,4 +1,4 @@
-package cardengine.types
+package cardengine
 
 // Status effects
 data class Status(

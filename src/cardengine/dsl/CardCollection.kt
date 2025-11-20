@@ -1,6 +1,6 @@
 package cardengine.dsl
 
-import cardengine.Card
+import cardengine.*
 
 class CardCollection constructor(
     val collection: List<Card>

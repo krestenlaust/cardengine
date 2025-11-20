@@ -1,3 +1,0 @@
-package cardengine.types
-
-enum class Faction { NORTHERN_REALMS, NILFGAARD, MONSTERS, SCOIATAEL, SKELLIGE, SYNDICATE, NEUTRAL }
