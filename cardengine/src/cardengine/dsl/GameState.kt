@@ -4,18 +4,18 @@ import cardengine.Card
 import cardengine.Row
 
 data class GameState(
-    val playerBoard: MutableMap<Row, MutableList<Card>> = mutableMapOf(
-        Row.MELEE to mutableListOf(),
-        Row.RANGED to mutableListOf()
+    val playerBoard: Map<Row, List<Card>> = mapOf(
+        Row.MELEE to listOf(),
+        Row.RANGED to listOf()
     ),
-    val opponentBoard: MutableMap<Row, MutableList<Card>> = mutableMapOf(
-        Row.MELEE to mutableListOf(),
-        Row.RANGED to mutableListOf()
+    val opponentBoard: Map<Row, List<Card>> = mapOf(
+        Row.MELEE to listOf(),
+        Row.RANGED to listOf()
     ),
-    val hand: MutableList<Card> = mutableListOf(),
-    val deck: MutableList<Card> = mutableListOf(),
-    val graveyard: MutableList<Card> = mutableListOf(),
-    val opponentGraveyard: MutableList<Card> = mutableListOf()
+    val hand: List<Card> = listOf(),
+    val deck: List<Card> = listOf(),
+    val graveyard: List<Card> = listOf(),
+    val opponentGraveyard: List<Card> = listOf()
 ) {
     fun allPlayerCards() = playerBoard.values.flatten()
     fun allOpponentCards() = opponentBoard.values.flatten()

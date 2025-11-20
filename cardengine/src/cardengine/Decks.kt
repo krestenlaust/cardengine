@@ -1,8 +1,6 @@
 package cardengine
 
 import cardengine.dsl.ability
-import cardengine.*
-import cardengine.dsl.Ability
 
 object Decks {
     val StandardDeck = listOf(
