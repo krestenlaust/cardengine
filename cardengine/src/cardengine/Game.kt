@@ -1,6 +1,7 @@
 package cardengine
 
 import cardengine.*
+import cardengine.dsl.AbilityType
 
 class Game {
     fun tick(state: GameState): GameState = when (state.phase) {
@@ -21,26 +22,24 @@ class Game {
             if (state.eventQueue.isEmpty()) {
                 state.copy(phase = GamePhase.EndTurn)
             } else {
-                val event = state.eventQueue.removeFirst()
-                val updated = handleEvent(state, event)
-                updated
+                val nextEvent = state.eventQueue.first()
+                val newState = state.copy(eventQueue = state.eventQueue.drop(1))
+                handleEvent(newState, nextEvent)
             }
         }
 
         GamePhase.EndTurn -> {
-            val nextPlayer = state.currentPlayer.other()
+            println("End turn")
+            val nextPlayer = (state.currentPlayer + 1) % state.playerCount;
             state.copy(
                 currentPlayer = nextPlayer,
                 phase = GamePhase.StartTurn
             )
         }
-
-        GamePhase.GameOver -> state
     }
 
     fun handleEvent(state: GameState, event: GameEvent): GameState =
         when (event) {
-
             is GameEvent.Deploy -> {
                 val deployEvents = event.card.abilities.flatMap { it.deployEvents(event.card) }
                 state.copy(eventQueue = listOf(deployEvents + state.eventQueue))
