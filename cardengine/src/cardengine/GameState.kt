@@ -1,5 +1,7 @@
 package cardengine
 
+import cardengine.dsl.Effect
+
 typealias PlayerId = Int
 
 data class GameState(
@@ -15,7 +17,7 @@ data class GameState(
     val currentPlayer: PlayerId = 0,
     val phase: GamePhase = GamePhase.GameStarted,
 
-    val eventQueue: List<GameEvent> = emptyList(),
+    val effectQueue: List<Effect> = emptyList(),
 
     val hands: Map<PlayerId, List<Card>> = (1..playerCount).associateWith { playerId ->
         emptyList()

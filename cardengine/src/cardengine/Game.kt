@@ -1,10 +1,16 @@
 package cardengine
 
-import cardengine.*
-import cardengine.dsl.AbilityType
+import cardengine.dsl.Effect
 
 class Game {
     fun tick(state: GameState): GameState = when (state.phase) {
+        GamePhase.GameStarted -> {
+            state.copy(phase = GamePhase.StartTurn)
+        }
+
+        GamePhase.GameEnded -> {
+            state
+        }
 
         GamePhase.StartTurn -> {
             val next = state.copy(
@@ -19,12 +25,12 @@ class Game {
         }
 
         GamePhase.ResolveEffects -> {
-            if (state.eventQueue.isEmpty()) {
+            if (state.effectQueue.isEmpty()) {
                 state.copy(phase = GamePhase.EndTurn)
             } else {
-                val nextEvent = state.eventQueue.first()
-                val newState = state.copy(eventQueue = state.eventQueue.drop(1))
-                handleEvent(newState, nextEvent)
+                val nextEvent = state.effectQueue.first()
+                val newState = state.copy(effectQueue = state.effectQueue.drop(1))
+                handleEffect(newState, nextEvent)
             }
         }
 
@@ -38,21 +44,18 @@ class Game {
         }
     }
 
-    fun handleEvent(state: GameState, event: GameEvent): GameState =
-        when (event) {
-            is GameEvent.Deploy -> {
-                val deployEvents = event.card.abilities.flatMap { it.deployEvents(event.card) }
-                state.copy(eventQueue = listOf(deployEvents + state.eventQueue))
+    fun handleEffect(state: GameState, effect: Effect): GameState =
+        when (effect) {
+            is Effect.Damage -> {
+                state
+                //val updatedBoard = state.board.damage(effect.target, effect.amount)
+                //state.copy(board = updatedBoard)
             }
 
-            is GameEvent.Damaged -> {
-                val updatedBoard = state.board.damage(event.target, event.amount)
-                state.copy(board = updatedBoard)
-            }
-
-            is GameEvent.Boosted -> {
-                val updatedBoard = state.board.boost(event.target, event.amount)
-                state.copy(board = updatedBoard)
+            is Effect.Boost -> {
+                state
+                //val updatedBoard = state.board.boost(effect.target, effect.amount)
+                //state.copy(board = updatedBoard)
             }
 
             else -> state
