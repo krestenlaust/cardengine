@@ -12,16 +12,24 @@ data class GameState(
             )
         },
 
-    val currentPlayer: PlayerId,
-    val phase: GamePhase,
+    val currentPlayer: PlayerId = 0,
+    val phase: GamePhase = GamePhase.GameStarted,
 
-    val eventQueue: List<GameEvent>,
+    val eventQueue: List<GameEvent> = emptyList(),
 
-    val hands: Map<PlayerId, List<Card>>,
-    val decks: Map<PlayerId, List<Card>>,
-    val graveyards: Map<PlayerId, List<Card>>,
+    val hands: Map<PlayerId, List<Card>> = (1..playerCount).associateWith { playerId ->
+        emptyList()
+    },
+    val decks: Map<PlayerId, List<Card>> = (1..playerCount).associateWith { playerId ->
+        emptyList()
+    },
+    val graveyards: Map<PlayerId, List<Card>> = (1..playerCount).associateWith { playerId ->
+        emptyList()
+    },
 
-    val graveyard: List<Card> = listOf(),
-    val opponentGraveyard: List<Card> = listOf(),
     val turnNumber: Int = 1,
-)
+) {
+    /*fun DamageCard(target: Card,) {
+        this.copy(boards = boards.map { it.value.map { it.value.map {  } } })
+    }*/
+}
